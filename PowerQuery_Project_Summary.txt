@@ -1,0 +1,45 @@
+Power Query Project Summary
+
+1. Sources Used
+
+-   Sales Data:
+    -   Sales_Jan.xlsx
+    -   Sales_Feb.xlsx
+    -   Sales_Mar.xlsx
+-   Employee Data:
+    -   Employees.xlsx
+
+2. Queries & Transformations Applied
+
+-   All_Sales_Raw:
+    -   Removed blank rows and unnecessary columns.
+    -   Promoted first row to headers.
+    -   Corrected data types (Order ID → Whole Number, Cost & Profit →
+        Decimal, Year → Whole Number).
+    -   Added Index column.
+    -   Appended all 3 months into a single query.
+-   Employees_Raw:
+    -   Promoted first row to headers.
+    -   Ensured data types (EmployeeID → Text, Join Date/Birthdate →
+        Date, Region → Text).
+    -   Created a calculated column for Birth Year.
+
+-   Sales_With_Employees:
+    -   Merged All_Sales_Raw with Employees_Raw on Region (Left Outer
+        Join).
+    -   Expanded columns from Employees → Name, Department, Join Date,
+        Birthdate.
+    -   Renamed query for clarity.
+
+3. Challenges Faced & Solutions
+
+
+-   Issue: Joining Sales and Employees was not possible on EmployeeID
+    (not available in Sales).
+    -   Solution: Performed join using Region, ensuring all sales rows
+        were kept.
+-   Issue: Different data types caused errors in merge and calculations.
+    -   Solution: Corrected data types (Whole Number, Decimal, Date)
+        before merging.
+
+------------------------------------------------------------------------
